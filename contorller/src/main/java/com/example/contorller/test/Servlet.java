@@ -15,7 +15,7 @@ public class Servlet {
     @ResponseBody
     public String user(){
         User user = new User();
-        user.setAge("12,0");
+        user.setAge("122,0");
         user.setNAME("GIT");
         return  user.toString();
     }
