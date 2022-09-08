@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript" th:src="@{/js_vue/vue.js}"></script>
+    <script type="text/javascript" th:src="@{/js_vue/axios.min.js}"></script>
+
+    <script type="text/javascript">
+
+
+        function aa  (){
+            var vue= new Vue({
+                el: "#user",
+
+                data: {
+                    user: {
+                        name: '',
+                        head:"",
+                        sex:"",
+                        date:"",
+                        gxqm:""
+
+
+                    }
+                },
+                methods: {
+
+                    dl:function(){
+                        axios({
+                            method:"POST",
+                            url:"UserDetailed",
+
+                        })
+                            .then(function (value){
+                              var userDetailed=  value.data;
+                              vue.user.name=userDetailed.name;
+                                vue.user.gxqm=userDetailed.gxqm;
+
+                            })
+                            .catch(function (reason){
+                                console.log(reason);
+                            });
+
+                    },
+
+                    userDetailed:function(){
+                        alert("修改中")
+
+
+
+                    }
+
+
+                },
+                created :function (){
+                    this.dl();
+                }
+
+            })
+        }
+    </script>
+</head>
+<body onload="aa()">
+
+<div id="user" th:style="'background-image: url(/img/grxq.png)'" >
+    <h1>欢迎━(*｀∀´*)ノ亻!{{user.name}}</h1>
+    <h1>个人签名: {{user.name}}</h1>
+    <input type="button" @click="userDetailed" value="修改我的详细资料">
+
+</div>
+
+</body>
+</html>

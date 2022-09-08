@@ -1,0 +1,19 @@
+# ????
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    # ????,html5??????????????404
+    mode: HTML
+    encoding: utf-8
+    servlet:
+      content-type: text/html
+    cache: false
+
+
+
+  datasource:
+    url: jdbc:mysql://192.168.1.136:3306/qq?serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456

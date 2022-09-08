@@ -9,9 +9,12 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>user</module>
+        <module>entity</module>
         <module>contorller</module>
+        <module>service</module>
+        <module>dao</module>
         <module>vue</module>
+
     </modules>
 
     <properties>

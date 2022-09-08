@@ -1,0 +1,112 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" th:src="@{/js_vue/vue.js}"></script>
+    <script type="text/javascript" th:src="@{/js_vue/axios.min.js}"></script>
+    <script type="text/javascript">
+
+
+        function aa  (){
+           var vue= new Vue({
+                el: "#app",
+
+                data: {
+                    user: {
+                        username: '',
+                        password: '',
+                    }
+                },
+                methods: {
+
+                    dl:function(){
+                        axios({
+                            method:"POST",
+                            url:"dl",
+                            params:{
+                                name: vue.user.username,
+                                password: vue.user.password
+
+                            }
+                        })
+                            .then(function (value){
+                                alert(value.data);
+                              var i=  value.data;
+                              if (i==1){
+                                  alert("成功登录");
+                                  location.href = "http://localhost:8080/dlz";
+                              }else if(i==0) {
+                                  alert("账号或密码错误");
+                              }
+
+                            })
+                            .catch(function (reason){
+                                console.log(reason);
+                            });
+
+
+                    },
+
+
+                    zc:function(){
+                        axios({
+                            method:"POST",
+                            url:"zc",
+                            params:{
+                                name: vue.user.username,
+                                password: vue.user.password
+
+                            }
+                        })
+                            .then(function (value) {
+                                alert(value.data);
+                                location.href = "http://localhost:8080/";
+                            })
+                            .catch(function (reason) {
+                                console.log(reason);
+                            });
+
+
+                    }
+
+
+                }
+            })
+        }
+    </script>
+</head>
+<body onload="aa()">
+<h1>用户登录</h1>
+<div id="app">
+<form>
+    <p>
+        <label for="username">姓名:</label>
+        <input    type="text" v-model='user.username' id="username" autocomplete="off">
+<!--        表单设计，当我们在浏览器中输入表单信息的时候，往往input文本输入框会记录下之前提交表单的信息，很容易暴露数据，-->
+<!--        autocomplete="off"属性可以完美的解决这个问题-->
+    </p>
+    <p>
+        <label for="password">密码:</label>
+        <input  type="text" v-model='user.password' id="password" autocomplete="off">
+    </p>
+
+    <p>
+        <input type="button" value="登录" @click="dl" >
+        <input type="button" value="注册" @click="zc">
+    </p>
+</form>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
