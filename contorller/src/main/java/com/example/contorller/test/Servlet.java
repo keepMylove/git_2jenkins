@@ -12,17 +12,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class Servlet {
     @RequestMapping("/a")
-    @ResponseBody
     public String user(){
-        System.out.println(2);
         User user = new User();
         user.setAge("122,ewfdfsdfs0");
         user.setNAME("GIT");
-        return  user.toString();
+        return "a";
     }
 
     @RequestMapping("/2")
-    public String udser(){
-        return  "forward:a";
+    @ResponseBody
+    public String user2(){
+        User user = new User();
+        user.setAge("122,ewfdfsdfs0");
+        user.setNAME("GIT");
+        return "a";
     }
 }
