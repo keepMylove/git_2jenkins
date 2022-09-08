@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
-//解决静态资源404 被themeleaf 拦截
+//解决静态资源404 被themeleafs 拦截
 @Configuration
 public class MvcConfigController extends WebMvcConfigurationSupport {
 
