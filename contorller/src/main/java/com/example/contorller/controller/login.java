@@ -82,7 +82,7 @@ public class login {
 
     @RequestMapping("/Chat")
     public String test2( HttpSession httpSession){
-        System.out.println("char");
+        System.out.println("chars");
         return "Chat";
     }
     @PostMapping ("/uname")
